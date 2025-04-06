@@ -2,6 +2,24 @@
 
 function calculateShippingCost() {
   // เริ่มเขียนโค้ดตรงนี้
+  let shippingCost = "";
+  let i = 0;
+
+  while (i < orders.length) {
+    if (i !== 0) {
+      shippingCost += "\n";
+    }
+    if (orders[i].total >= 6000) {
+      shippingCost += `'Order ${orders[i].orderId}: Shipping is free.'`;
+    } else if (orders[i].total >= 3000) {
+      shippingCost += `'Order ${orders[i].orderId}: Shipping cost is 250 Baht.'`;
+    } else {
+      shippingCost += `'Order ${orders[i].orderId}: Shipping cost is 500 Baht.'`;
+    }
+    i++;
+  }
+
+  return shippingCost;
 }
 
 // ตัวอย่างการใช้งาน
